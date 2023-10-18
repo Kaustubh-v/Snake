@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 
+//this class stores the state of the game.
 namespace Snake
 {
     public class GameState
