@@ -138,6 +138,7 @@ namespace Snake
             DrawGrid();
             DrawSnakeHead();
             ScoreText.Text = $"SCORE {gameState.Score}";
+            HighScoreText.Text = $"HIGH SCORE {gameState.highScore.Highscore}";
         }
 
         private void DrawGrid()

@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Security.Policy;
 
 //this class stores the state of the game.
 namespace Snake
@@ -12,6 +13,10 @@ namespace Snake
         public GridValue[,] Grid { get; }
         public Direction Direction { get; private set; }
         public int Score { get; private set; }
+
+        public  HighScore highScore = new HighScore();
+
+        public int high_score = 0;
         public bool GameOver { get; private set; }
 
         private readonly LinkedList<Direction> directionChanges = new LinkedList<Direction>(); 
@@ -26,7 +31,6 @@ namespace Snake
             Columns = column;
             Grid = new GridValue[rows, column];
             Direction = Direction.Right;
-
             AddSnake();
             AddFood();
         }
@@ -166,6 +170,7 @@ namespace Snake
             if (Hit == GridValue.Outside || Hit == GridValue.Snake)
             {
                 GameOver = true;
+                highScore.SaveResult(Score);
             }
             else if (Hit == GridValue.Empty)
             {
