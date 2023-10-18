@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System;
-
+//this class is used for setting directions of the snake
 namespace Snake
 {
     public class Direction
